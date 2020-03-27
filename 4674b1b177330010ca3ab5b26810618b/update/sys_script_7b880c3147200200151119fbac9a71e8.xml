@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sys_broadcast_message</collection>
+        <condition/>
+        <description/>
+        <execute_function>true</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Insert Broadcast Message</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[function onBefore(current, previous) {
+	current.name = "Megaphone Broadcast Message";
+	current.script = 'var mega = new MegaphoneBroadcast(current.sys_id).broadcastMessage();';
+	current.run_type = "once";
+	current.email_sent = "false";
+	current.run_start = current.notify_users_after_date;
+	var now = new GlideDateTime();
+	if(now > current.notify_users_after_date) {
+		now.addSeconds(5);
+		current.run_start = now;
+	}
+}]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2015-06-10 01:09:13</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7b880c3147200200151119fbac9a71e8</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Insert Broadcast Message</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Broadcast Messages" source="com.snc.mega_cust">2a2f1f8344670010e8397697005557bc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="GlobalLocal">4674b1b177330010ca3ab5b26810618b</sys_scope>
+        <sys_update_name>sys_script_7b880c3147200200151119fbac9a71e8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-27 15:53:47</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=7b880c3147200200151119fbac9a71e8"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="GlobalLocal">4674b1b177330010ca3ab5b26810618b</claim_owner_scope>
+        <claim_timestamp>1711cb3096d0000001</claim_timestamp>
+        <metadata_update_name>sys_script_7b880c3147200200151119fbac9a71e8</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>GlobalLocal</previous_claim_name>
+        <previous_claim_scope>4674b1b177330010ca3ab5b26810618b</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-27 15:53:47</sys_created_on>
+        <sys_id>06d475b177330010ca3ab5b2681061a3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-27 15:53:47</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="GlobalLocal">4674b1b177330010ca3ab5b26810618b</claim_owner_scope>
+        <claim_timestamp>1711cb309650000001</claim_timestamp>
+        <metadata_update_name>sys_script_7b880c3147200200151119fbac9a71e8</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>com.snc.mega_cust</previous_claim_name>
+        <previous_claim_scope>com.snc.mega_cust</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-27 15:53:47</sys_created_on>
+        <sys_id>cad475b177330010ca3ab5b2681061a3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-27 15:53:47</sys_updated_on>
+    </sys_claim>
+</record_update>
